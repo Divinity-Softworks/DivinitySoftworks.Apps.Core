@@ -1,11 +1,11 @@
 ﻿namespace DivinitySoftworks.Apps.Core.Components {
 
     /// <inheritdoc/>
-    public partial class TextField : Base.TextField {
+    public partial class ProgressionBar : Base.ProgressionBar {
         /// <summary>
-        /// Represents a control that can be used to display or edit unformatted text.
+        /// Indicates the progress of an operation.
         /// </summary>
-        public TextField() {
+        public ProgressionBar() {
             InitializeComponent();
         }
     }

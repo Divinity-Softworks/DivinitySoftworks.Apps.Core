@@ -1,13 +1,9 @@
-﻿<local:DateTimeLabelBase x:Class="DivinitySoftworks.Apps.Core.Components.DateTimeLabel" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-       xmlns:local="clr-namespace:DivinitySoftworks.Apps.Core.Components"
-       mc:Ignorable="d" 
-       d:DesignHeight="64" d:DesignWidth="256">
-    <local:DateTimeLabelBase.Style>
-        <Style TargetType="{x:Type local:DateTimeLabelBase}">
+﻿<local:DateTimeLabel x:Class="DivinitySoftworks.Apps.Core.Components.DateTimeLabel" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                         xmlns:local="clr-namespace:DivinitySoftworks.Apps.Core.Components.Base"
+                         mc:Ignorable="d" d:DesignHeight="64" d:DesignWidth="256">
+    <local:DateTimeLabel.Style>
+        <Style TargetType="{x:Type local:DateTimeLabel}">
             <Setter Property="Foreground" Value="Black" />
         </Style>
-    </local:DateTimeLabelBase.Style>
-    <!--<TextBlock>
-        <Run x:Name="_textBlock" Typography.Capitals="{Binding Capitals, RelativeSource={RelativeSource AncestorType={x:Type local:DateTimeLabel}}}" />
-    </TextBlock>-->
-</local:DateTimeLabelBase>
+    </local:DateTimeLabel.Style>
+</local:DateTimeLabel>

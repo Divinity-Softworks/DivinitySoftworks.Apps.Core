@@ -58,7 +58,10 @@ namespace DivinitySoftworks.Apps.Core.Configuration.Managers {
                 return value;
 
             try {
-                return (T)Convert.ChangeType(_userSettings[key], typeof(T));
+                Type targetType = typeof(T);
+                targetType = Nullable.GetUnderlyingType(targetType) ?? targetType;
+
+                return _userSettings[key] == null ? default : (T)Convert.ChangeType(_userSettings[key], targetType);
             }
             catch (InvalidCastException) {
                 return default;
@@ -74,7 +77,7 @@ namespace DivinitySoftworks.Apps.Core.Configuration.Managers {
                 _userSettings = new Dictionary<string, object>();
 
             if (value is null)
-                throw new NullReferenceException(nameof(value));
+                return;
 
             if (_userSettings.ContainsKey(key)) {
                 _userSettings[key] = value;

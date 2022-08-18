@@ -47,6 +47,9 @@
                                 <Setter Property="BorderBrush" TargetName="PART_Border" Value="{Binding Path=FocusBrush, RelativeSource={RelativeSource AncestorType={x:Type local:TextField}}}"/>
                                 <Setter Property="Fill" TargetName="PART_Icon" Value="{Binding Path=FocusBrush, RelativeSource={RelativeSource AncestorType={x:Type local:TextField}}}"/>
                             </Trigger>
+                            <Trigger Property="IsReadOnly" Value="True">
+                                <Setter Property="BorderBrush" TargetName="PART_Border" Value="Transparent"/>
+                            </Trigger>
                             <Trigger Property="IsKeyboardFocused" Value="True">
                                 <Setter Property="BorderBrush" TargetName="PART_Border" Value="{Binding Path=FocusBrush, RelativeSource={RelativeSource AncestorType={x:Type local:TextField}}}"/>
                                 <Setter Property="Fill" TargetName="PART_Icon" Value="{Binding Path=FocusBrush, RelativeSource={RelativeSource AncestorType={x:Type local:TextField}}}"/>

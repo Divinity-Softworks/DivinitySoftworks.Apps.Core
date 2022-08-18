@@ -72,6 +72,15 @@
                     </MultiTrigger.Conditions>
                     <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
                 </MultiTrigger>
+
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Setter Property="Background" Value="Maroon" />
+                    <Setter Property="Validation.ErrorTemplate">
+                        <Setter.Value>
+                            <ControlTemplate />
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
             </Style.Triggers>
         </Style>
     </local:TextField.Style>

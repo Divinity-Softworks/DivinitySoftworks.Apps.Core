@@ -7,7 +7,7 @@ using System.Windows.Markup;
 namespace DivinitySoftworks.Apps.Core.Converters {
 
     /// <summary>
-    /// Converts an <seealso cref="Enum"/> to <seealso cref="Visibility"/>.
+    /// Converts an <seealso cref="Enum"/> to <seealso langword="bool"/>.
     /// <para>
     /// To use this converter. Add <c>xmlns:converters="clr-namespace:DivinitySoftworks.Apps.Core.Converters;assembly=DivinitySoftworks.Apps.Core"</c> to the XAML file.
     /// </para>

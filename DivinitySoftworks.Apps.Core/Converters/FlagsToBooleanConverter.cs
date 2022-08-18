@@ -7,24 +7,24 @@ using System.Windows.Markup;
 namespace DivinitySoftworks.Apps.Core.Converters {
 
     /// <summary>
-    /// Converts an <seealso cref="Enum"/> flag to a <seealso cref="Visibility"/>.
+    /// Converts an <seealso cref="Enum"/> flag to <seealso langword="bool"/>.
     /// <para>
     /// To use this converter. Add <c>xmlns:converters="clr-namespace:DivinitySoftworks.Apps.Core.Converters;assembly=DivinitySoftworks.Apps.Core"</c> to the XAML file.
     /// </para>
     /// </summary>
-    public class EnumToVisibilityConverter : MarkupExtension, IValueConverter {
+    public class FlagsToBooleanConverter : MarkupExtension, IValueConverter {
 
         /// <summary>
-        /// The <seealso cref="Enum"/> the value should be to be <seealso cref="Visibility.Visible"/>.
+        /// The <seealso cref="Enum"/> the value should contain.
         /// </summary>
-        public Enum? Visible { get; set; }
+        public Enum? True { get; set; }
 
         /// <inheritdoc/>
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture) {
-            if (Visible is null) throw new NullReferenceException(nameof(Visible));
+            if (True is null) throw new NullReferenceException(nameof(True));
 
             if (value is not null && value.GetType().IsEnum)
-                return Equals(value, Visible) ? Visibility.Visible : Visibility.Collapsed;
+                return ((Enum)value).HasFlag(True);
             else
                 return DependencyProperty.UnsetValue;
         }
@@ -40,4 +40,3 @@ namespace DivinitySoftworks.Apps.Core.Converters {
         }
     }
 }
-

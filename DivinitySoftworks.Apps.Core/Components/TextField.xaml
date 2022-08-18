@@ -30,10 +30,11 @@
                                     </Canvas>
                                 </Viewbox>
                                 <Label x:Name="PART_Placeholder" Grid.Column="1"
-                                   Foreground="{TemplateBinding PlaceholderBrush}" Background="Transparent" Margin="2 0"
-                                   Visibility="Collapsed"
-                                   HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" 
-                                   Padding="{TemplateBinding Padding}">
+                                       Foreground="{TemplateBinding PlaceholderBrush}" Background="Transparent" Margin="2 0"
+                                       FontSize="{TemplateBinding FontSize}"
+                                       Visibility="Collapsed"
+                                       HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" 
+                                       Padding="{TemplateBinding Padding}">
                                     <TextBlock TextTrimming="CharacterEllipsis" TextWrapping="NoWrap" Text="{TemplateBinding Placeholder}" />
                                 </Label>
                                 <ScrollViewer x:Name="PART_ContentHost" Grid.Column="1" Focusable="False" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>

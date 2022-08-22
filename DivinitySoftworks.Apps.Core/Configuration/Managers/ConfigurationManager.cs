@@ -110,14 +110,14 @@ namespace DivinitySoftworks.Apps.Core.Configuration.Managers {
             _userSettings = JsonConvert.DeserializeObject<Dictionary<string, object>>(streamReader.ReadToEnd());
         }
 
-        private ValueTask SaveUserSettingsAsync() {
+        private async ValueTask SaveUserSettingsAsync() {
             if (_userSettings is null)
                 _userSettings = new();
 
             using IsolatedStorageFile isolatedStorageFile = IsolatedStorageFile.GetUserStoreForApplication();
             isolatedStorageFile.CreateDirectory(_directory);
             using IsolatedStorageFileStream isolatedStorageFileStream = isolatedStorageFile.CreateFile($@"{_directory}\User.cfg");
-            return isolatedStorageFileStream.WriteAsync(new ReadOnlyMemory<byte>(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(_userSettings))));
+            await isolatedStorageFileStream.WriteAsync(new ReadOnlyMemory<byte>(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(_userSettings))));
         }
     }
 

@@ -1,4 +1,6 @@
-﻿namespace System {
+﻿using System.Globalization;
+
+namespace System {
 
     /// <summary>
     /// Extentions for the <seealso cref="DateTime"/> type.
@@ -29,6 +31,20 @@
                 return "Good Afternoon";
 
             return "Good Evening";
+        }
+
+        /// <summary>
+        /// Adds the proper suffix to a day. Like 1st, 2nd, 21st, etc. This expects the <seealso cref="CultureInfo"/> to be in English
+        /// </summary>
+        /// <param name="dateTime">The <seealso cref="DateTime"/> to base the day and suffix on.</param>
+        /// <returns>The day with suffix, like 1st, 2nd, 21st, etc.</returns>
+        public static string ToSuffixDate(this DateTime dateTime) {
+            return dateTime.Day switch {
+                1 or 21 or 31 => $"{dateTime.Day}st",
+                2 or 22 => $"{dateTime.Day}nd",
+                3 or 23 => $"{dateTime.Day}rd",
+                _ => $"{dateTime.Day}th",
+            };
         }
     }
 }

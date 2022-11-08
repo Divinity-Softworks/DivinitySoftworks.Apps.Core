@@ -46,5 +46,17 @@ namespace System {
                 _ => $"{dateTime.Day}th",
             };
         }
+
+        /// <summary>
+        /// Gets the number of the current week.
+        /// </summary>
+        /// <param name="dateTime">The <seealso cref="DateTime"/> to get the week number from.</param>
+        /// <param name="dayOfWeek">The <seealso cref="DayOfWeek"/>.</param>
+        /// <param name="calendarWeekRule">The <seealso cref="CalendarWeekRule"/>.</param>
+        /// <returns>The week number of the given <seealso cref="DateTime"/>.</returns>
+        public static int GetWeekNumber(this DateTime dateTime, DayOfWeek dayOfWeek = DayOfWeek.Sunday, CalendarWeekRule calendarWeekRule = CalendarWeekRule.FirstDay) {
+            return CultureInfo.CurrentCulture.Calendar
+                .GetWeekOfYear(dateTime, calendarWeekRule, dayOfWeek);
+        }
     }
 }

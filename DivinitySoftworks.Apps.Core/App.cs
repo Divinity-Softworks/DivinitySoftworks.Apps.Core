@@ -1,5 +1,4 @@
 ﻿using DivinitySoftworks.Apps.Core.Configuration;
-using DivinitySoftworks.Apps.Core.Configuration.Managers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -65,11 +64,10 @@ namespace DivinitySoftworks.Apps.Core {
         /// <param name="services">The mechanism for retrieving a service object; that is, an object that provides custom support to other objects.</param>
         /// <exception cref="NullReferenceException">The loaded configurations does not contain an 'AppSettings' section.</exception>
         protected virtual void ConfigureServices(IServiceCollection services) {
-            A appSettings = Configuration.GetSection("AppSettings").Get<A>();
-            if (appSettings is null) throw new NullReferenceException("Invalid [AppSettings.json] file. It is missing the 'AppSettings' section.");
-
+            A? appSettings = Configuration.GetSection("AppSettings").Get<A>()
+                ?? throw new NullReferenceException("Invalid [AppSettings.json] file. It is missing the 'AppSettings' section.");
             services.AddSingleton(typeof(I), appSettings);
-            services.AddSingleton<IConfigurationManager, Configuration.Managers.ConfigurationManager>();
+            services.AddSingleton<Configuration.Managers.IConfigurationManager, Configuration.Managers.ConfigurationManager>();
         }
     }
 }
